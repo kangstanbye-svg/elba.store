@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elba Store — Prompt Pack & E-book AI untuk Mahasiswa & Pekerja</title>
+<meta name="description" content="Koleksi prompt pack & e-book AI siap pakai untuk skripsi, karier, bisnis, dan produktivitas. 100+ prompt per produk, langsung pakai." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17151F;--ink-soft:#605C70;--surface:#FFFFFF;--line:#E7E6EE;
+    --violet:#5B2EFF;--violet-deep:#3A14C9;--coral:#FF3D71;
+    --radius:22px;--shadow:0 1px 2px rgba(10,6,30,.12),0 18px 40px -20px rgba(10,6,30,.45);
+    --glass:rgba(255,255,255,.09);--glass-line:rgba(255,255,255,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:64px;background:#1b1336}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(42% 52% at 12% 16%, rgba(124,59,255,.60), transparent 60%),
+      radial-gradient(46% 56% at 90% 10%, rgba(37,99,235,.48), transparent 60%),
+      radial-gradient(52% 60% at 86% 90%, rgba(236,72,153,.42), transparent 62%),
+      radial-gradient(46% 56% at 8% 92%, rgba(14,165,196,.40), transparent 60%),
+      linear-gradient(140deg,#1b1336 0%,#241a44 55%,#2e2150 100%);}
+
+  .layout{max-width:560px;margin:0 auto;padding:30px 18px 0}
+  .profile{text-align:center}
+  .avatar{width:90px;height:90px;border-radius:26px;margin:0 auto 14px;background:linear-gradient(135deg,var(--violet),var(--violet-deep));display:grid;place-items:center;font-family:"Sora";font-weight:800;font-size:39px;color:#fff;box-shadow:0 12px 34px -8px rgba(91,46,255,.7);border:3px solid rgba(255,255,255,.85)}
+  .store-name{font-family:"Sora";font-weight:800;font-size:26px;letter-spacing:-.02em;display:flex;align-items:center;justify-content:center;gap:8px}
+  .verified{width:20px;height:20px;flex:none}
+  .handle{color:rgba(255,255,255,.72);font-size:13.5px;margin-top:3px;font-family:"Space Mono"}
+  .tagline{font-size:14.5px;color:rgba(255,255,255,.82);max-width:340px;margin:13px auto 0}
+  .stats{display:flex;justify-content:center;margin:18px auto 4px;background:var(--glass);border:1px solid var(--glass-line);border-radius:18px;padding:12px 4px;max-width:360px;backdrop-filter:blur(12px)}
+  .stat{flex:1;text-align:center;position:relative}
+  .stat + .stat::before{content:"";position:absolute;left:0;top:18%;height:64%;width:1px;background:rgba(255,255,255,.16)}
+  .stat b{font-family:"Sora";font-weight:700;font-size:18px;display:block}
+  .stat span{font-size:11px;color:rgba(255,255,255,.66);letter-spacing:.02em}
+  .socials{display:flex;justify-content:center;gap:10px;margin-top:16px}
+  .socials a{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--glass);border:1px solid var(--glass-line);color:#fff;backdrop-filter:blur(12px);transition:.18s}
+  .socials a:hover{transform:translateY(-2px);background:rgba(255,255,255,.22)}
+  .socials svg{width:18px;height:18px}
+  .cta-main{display:flex;align-items:center;justify-content:center;gap:9px;margin:18px auto 0;max-width:360px;background:#fff;color:var(--ink);text-decoration:none;font-family:"Sora";font-weight:700;font-size:14.5px;padding:14px;border-radius:15px;transition:.16s;box-shadow:0 14px 30px -14px rgba(0,0,0,.6)}
+  .cta-main:hover{transform:translateY(-2px)}
+  .cta-main svg{width:17px;height:17px}
+
+  .promo{margin:22px 0 6px;display:flex;align-items:center;gap:11px;background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(12px);border-radius:16px;padding:13px 15px;font-size:13px}
+  .promo .tag{font-family:"Space Mono";font-weight:700;font-size:11px;letter-spacing:.04em;background:var(--coral);color:#fff;padding:4px 8px;border-radius:7px;flex:none}
+  .promo b{font-family:"Space Mono"}
+
+  /* TABS (3 halaman) */
+  .tabs{display:flex;gap:6px;margin:18px 0 6px;background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(12px);padding:5px;border-radius:16px}
+  .tab{flex:1;border:none;background:transparent;color:rgba(255,255,255,.8);font-family:"Sora";font-weight:700;font-size:12.5px;padding:11px 6px;border-radius:12px;cursor:pointer;transition:.15s;white-space:nowrap}
+  .tab:hover{color:#fff}
+  .tab.active{background:#fff;color:var(--ink)}
+  .panel{display:none}
+  .panel.active{display:block}
+
+  .filterbar{position:sticky;top:0;z-index:20;padding:12px 0 10px;margin-top:6px}
+  .filterbar::before{content:"";position:absolute;inset:-12px -40px 0;z-index:-1;background:rgba(20,15,40,.55);backdrop-filter:blur(14px)}
+  .filterbar .scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+  .filterbar .scroll::-webkit-scrollbar{display:none}
+  .chip{flex:none;border:1px solid var(--glass-line);background:var(--glass);color:rgba(255,255,255,.78);font-family:"Plus Jakarta Sans";font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:.15s;backdrop-filter:blur(10px)}
+  .chip:hover{background:rgba(255,255,255,.2);color:#fff}
+  .chip.active{background:#fff;color:var(--ink);border-color:#fff}
+
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:20px 0 12px}
+  .section-head h2{font-family:"Sora";font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .section-head span{font-size:12px;color:rgba(255,255,255,.66)}
+  .lead{font-size:14px;color:rgba(255,255,255,.82);margin:14px 0 4px;max-width:520px}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media (max-width:360px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);color:var(--ink);transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(10,6,30,.14),0 28px 50px -22px rgba(10,6,30,.6)}
+  .cover{position:relative;aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:space-between;padding:13px;color:#fff}
+  .cover .no{font-family:"Space Mono";font-weight:700;font-size:12px;opacity:.9}
+  .cover .pcount{align-self:flex-start;font-family:"Space Mono";font-weight:700;font-size:10.5px;background:rgba(255,255,255,.2);backdrop-filter:blur(4px);padding:4px 8px;border-radius:8px;letter-spacing:.02em}
+  .cover .ptitle{font-family:"Sora";font-weight:800;font-size:19px;line-height:1.12;letter-spacing:-.01em;text-shadow:0 1px 10px rgba(0,0,0,.22)}
+  .cover .disc{position:absolute;top:13px;right:13px;font-family:"Space Mono";font-weight:700;font-size:11px;background:var(--coral);padding:4px 7px;border-radius:8px}
+  .body{padding:13px 14px 14px;display:flex;flex-direction:column;flex:1}
+  .cat{font-size:11px;font-weight:700;color:var(--violet);letter-spacing:.03em;text-transform:uppercase;margin-bottom:5px}
+  .name{font-family:"Sora";font-weight:700;font-size:14.5px;line-height:1.25;letter-spacing:-.01em}
+  .desc{font-size:12px;color:var(--ink-soft);margin-top:5px;flex:1}
+  .price{display:flex;align-items:baseline;gap:7px;margin-top:11px}
+  .price .now{font-family:"Space Mono";font-weight:700;font-size:16px}
+  .price .was{font-family:"Space Mono";font-size:11.5px;color:var(--ink-soft);text-decoration:line-through}
+  .buy{margin-top:11px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--violet);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:11px;border-radius:13px;transition:.15s}
+  .buy:hover{background:var(--violet-deep)}
+  .buy svg{width:14px;height:14px}
+  .g-akademik{background:linear-gradient(150deg,#6C3BFF,#3A14C9)}
+  .g-karier{background:linear-gradient(150deg,#0EA5C4,#2563EB)}
+  .g-bisnis{background:linear-gradient(150deg,#F59E0B,#EA580C)}
+  .g-bahasa{background:linear-gradient(150deg,#EC4899,#7C3AED)}
+  .g-produktif{background:linear-gradient(150deg,#10B981,#0EA5A4)}
+  .g-bundle{background:linear-gradient(150deg,#FF6A3D,#FF3D71)}
+  .empty{grid-column:1/-1;text-align:center;color:rgba(255,255,255,.7);font-size:14px;padding:30px 0}
+
+  /* BUNDLE banner */
+  .bundle{margin:16px 0 18px;background:linear-gradient(135deg,#6C3BFF,#3A14C9);border-radius:var(--radius);padding:20px;color:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+  .bundle::after{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.12)}
+  .bundle .b-eye{font-family:"Space Mono";font-weight:700;font-size:11px;letter-spacing:.05em;background:var(--coral);align-self:flex-start;padding:4px 9px;border-radius:7px}
+  .bundle .b-title{font-family:"Sora";font-weight:800;font-size:21px;line-height:1.15;letter-spacing:-.01em}
+  .bundle .b-desc{font-size:13.5px;color:rgba(255,255,255,.88);max-width:420px}
+  .bundle .b-price{display:flex;align-items:baseline;gap:9px;font-family:"Space Mono"}
+  .bundle .b-price .now{font-weight:700;font-size:22px}
+  .bundle .b-price .was{font-size:13px;opacity:.8;text-decoration:line-through}
+  .bundle .b-cta{align-self:flex-start;background:#fff;color:var(--violet-deep);text-decoration:none;font-family:"Sora";font-weight:700;font-size:14px;padding:12px 22px;border-radius:13px;transition:.15s;z-index:1}
+  .bundle .b-cta:hover{transform:translateY(-2px)}
+
+  /* AFFILIATE */
+  .aff-hero{background:var(--surface);border-radius:var(--radius);padding:20px;color:var(--ink);box-shadow:var(--shadow);margin:16px 0 16px}
+  .aff-hero .badge{display:inline-block;font-family:"Space Mono";font-weight:700;font-size:11px;letter-spacing:.04em;color:var(--violet);background:rgba(91,46,255,.1);padding:5px 10px;border-radius:8px}
+  .aff-hero h2{font-family:"Sora";font-weight:800;font-size:22px;margin:11px 0 6px;letter-spacing:-.01em}
+  .aff-hero p{font-size:14px;color:var(--ink-soft)}
+  .aff-komisi{display:flex;align-items:baseline;gap:8px;margin:14px 0 4px}
+  .aff-komisi b{font-family:"Sora";font-weight:800;font-size:34px;color:var(--violet);line-height:1}
+  .aff-komisi span{font-size:13px;color:var(--ink-soft)}
+  .steps{display:grid;gap:10px;margin:16px 0}
+  .step{display:flex;gap:12px;align-items:flex-start}
+  .step .n{flex:none;width:30px;height:30px;border-radius:9px;background:var(--violet);color:#fff;font-family:"Space Mono";font-weight:700;font-size:14px;display:grid;place-items:center}
+  .step b{font-size:14px;display:block;color:var(--ink)}
+  .step p{font-size:12.5px;color:var(--ink-soft)}
+  .btn-wide{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--violet);color:#fff;text-decoration:none;font-family:"Sora";font-weight:700;font-size:14.5px;padding:14px;border-radius:14px;transition:.15s}
+  .btn-wide:hover{background:var(--violet-deep)}
+
+  .info{margin-top:26px;background:var(--surface);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);color:var(--ink)}
+  .info h3{font-family:"Sora";font-weight:700;font-size:15px;margin-bottom:12px}
+  .info-row{display:flex;gap:11px;align-items:flex-start;padding:9px 0}
+  .info-row + .info-row{border-top:1px solid var(--line)}
+  .info-row .ic{width:34px;height:34px;border-radius:10px;background:rgba(91,46,255,.1);display:grid;place-items:center;flex:none}
+  .info-row .ic svg{width:17px;height:17px;color:var(--violet)}
+  .info-row b{font-size:13.5px;display:block}
+  .info-row p{font-size:12px;color:var(--ink-soft)}
+
+  footer{text-align:center;margin-top:28px;color:rgba(255,255,255,.72);font-size:12px}
+  .pay{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .pay span{font-family:"Space Mono";font-size:10.5px;font-weight:700;background:var(--glass);border:1px solid var(--glass-line);padding:5px 9px;border-radius:8px;color:#fff;backdrop-filter:blur(8px)}
+  footer .made{margin-top:6px}
+  footer a{color:#C3B1FF;text-decoration:none;font-weight:600}
+
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(20,15,40,.7);backdrop-filter:blur(12px);border-top:1px solid var(--glass-line);padding:11px 18px}
+  .sticky-cta .inner{max-width:560px;margin:0 auto}
+  .sticky-cta a{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--ink);text-decoration:none;font-family:"Sora";font-weight:700;font-size:14.5px;padding:14px;border-radius:15px}
+  .sticky-cta a svg{width:17px;height:17px}
+
+  @media (min-width:980px){
+    body{padding-bottom:0}
+    .layout{max-width:1180px;padding:48px 32px 56px;display:grid;grid-template-columns:360px 1fr;gap:44px;align-items:start}
+    .profile-col{position:sticky;top:40px}
+    .content-col{padding-top:4px}
+    .grid{grid-template-columns:repeat(3,1fr);gap:16px}
+    .filterbar::before{inset:-12px -24px 0}
+    .sticky-cta{display:none}
+    .promo,.tabs{margin-top:0}
+    .bundle{flex-direction:row;align-items:center;justify-content:space-between}
+    .bundle > div:first-child{display:flex;flex-direction:column;gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="profile-col">
+    <div class="profile">
+      <div class="avatar">E</div>
+      <h1 class="store-name">Elba Store
+        <svg class="verified" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 1.8 3 .2.9 2.9 2.1 2.1-.9 2.9 1 2.9-2.1 2.1-.6 3-2.9.5L12 22l-2.8-.9-2.9-.5-.6-3-2.1-2.1 1-2.9-1-2.9 2.1-2.1.9-2.9 3-.2L12 2z" fill="#fff"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" stroke="#5B2EFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </h1>
+      <div class="handle">@elba.store · lynk.id/elba.store</div>
+      <p class="tagline">Prompt pack &amp; e-book AI siap pakai untuk mahasiswa &amp; pekerja. 100+ prompt per produk — tinggal copy, paste, beres. ✨</p>
+      <div class="stats">
+        <div class="stat"><b>16+</b><span>Produk</span></div>
+        <div class="stat"><b>1.2K+</b><span>Pembeli</span></div>
+        <div class="stat"><b>4.9</b><span>Rating</span></div>
+      </div>
+      <nav class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2.2 1.7 3.9 3.9 4.2v2.6c-1.4.1-2.7-.3-3.9-1v6.4c0 3.3-2.6 5.8-5.8 5.8S5 18.4 5 15.2s2.6-5.8 5.8-5.8c.3 0 .6 0 .9.1v2.7c-.3-.1-.6-.1-.9-.1-1.7 0-3.1 1.4-3.1 3.1s1.4 3.1 3.1 3.1 3.1-1.4 3.1-3.1V3h2.6z"/></svg></a>
+        <a href="#" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 22C7 22 3.5 18.4 3.5 12S7 2 12.6 2c3.6 0 6.2 1.4 7.6 4l-2 1.1c-1-1.8-2.8-2.8-5.6-2.8-4.2 0-6.5 2.7-6.5 7.7s2.4 7.7 6.4 7.7c2.6 0 4.3-1 4.9-3 .3-1.1.1-2.1-.6-2.8-.5 2-2 3.1-4.1 3.1-2 0-3.4-1.2-3.4-3 0-1.9 1.6-3 4-3 .8 0 1.6.1 2.2.3 0-1.5-.8-2.3-2.3-2.3-1 0-1.8.4-2.3 1.2l-1.8-1c.9-1.4 2.3-2.1 4.1-2.1 2.9 0 4.5 1.8 4.5 5v.4c1.4 1 2.1 2.6 1.6 4.6C18.8 20.3 16.3 22 12.5 22zm-.3-8.1c-1.2 0-1.9.5-1.9 1.3 0 .7.6 1.2 1.6 1.2 1.3 0 2.1-.8 2.2-2.2-.6-.2-1.2-.3-1.9-.3z"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.4A10 10 0 1012 2zm5.6 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.7-.1 1.4z"/></svg></a>
+      </nav>
+      <a class="cta-main" href="https://lynk.id/elba.store" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        Kunjungi Lynk.id
+      </a>
+    </div>
+  </aside>
+
+  <div class="content-col">
+    <div class="promo">
+      <span class="tag">PROMO</span>
+      <div>Pakai kode <b>ELBA20</b> — diskon 20% semua produk. Berlaku terbatas!</div>
+    </div>
+
+    <!-- TAB: 3 halaman -->
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="katalog">Katalog</button>
+      <button class="tab" data-tab="auto">⚡ Auto Pinter</button>
+      <button class="tab" data-tab="affiliate">🎁 Affiliate</button>
+    </div>
+
+    <!-- PANEL 1: KATALOG -->
+    <section class="panel active" id="panel-katalog">
+      <div class="filterbar">
+        <div class="scroll" id="chips">
+          <button class="chip active" data-cat="all">Semua</button>
+          <button class="chip" data-cat="akademik">Skripsi &amp; Akademik</button>
+          <button class="chip" data-cat="karier">Karier &amp; Magang</button>
+          <button class="chip" data-cat="bisnis">Bisnis &amp; Keuangan</button>
+          <button class="chip" data-cat="bahasa">Bahasa</button>
+          <button class="chip" data-cat="produktif">Produktivitas</button>
+        </div>
+      </div>
+      <div class="section-head"><h2>Katalog Produk</h2><span id="count">12 produk</span></div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- PANEL 2: AUTO PINTER -->
+    <section class="panel" id="panel-auto">
+      <p class="lead">⚡ <b>Auto Pinter</b> — paket pilihan biar tugas, karier, &amp; bisnis kelar lebih cepat. Best seller Elba Store.</p>
+
+      <!-- BUNDLE (hapus blok ini kalau belum ada bundle) -->
+      <div class="bundle">
+        <div>
+          <span class="b-eye">PALING HEMAT</span>
+          <div class="b-title">Bundle Auto Pinter — Semua Prompt</div>
+          <div class="b-desc">Semua produk "Sakti" jadi satu paket. 1.300+ prompt untuk skripsi, karier, sampai bisnis.</div>
+          <div class="b-price"><span class="now">Rp99.000</span><span class="was">Rp350.000</span></div>
+        </div>
+        <a class="b-cta" href="https://lynk.id/elba.store" target="_blank" rel="noopener">Beli Bundle</a>
+      </div>
+
+      <div class="section-head"><h2>Produk Pilihan</h2><span id="countAuto"></span></div>
+      <div class="grid" id="gridAuto"></div>
+    </section>
+
+    <!-- PANEL 3: KHUSUS AFFILIATE -->
+    <section class="panel" id="panel-affiliate">
+      <div class="aff-hero">
+        <span class="badge">KHUSUS AFFILIATE</span>
+        <h2>Jualkan produk Elba Store, dapat komisi.</h2>
+        <p>Cukup share link unikmu. Tiap ada yang beli lewat link itu, kamu langsung dapat komisi — tanpa modal, tanpa stok.</p>
+        <div class="aff-komisi"><b>30%</b><span>komisi per penjualan*</span></div>
+        <p style="font-size:11.5px;margin-top:2px">*ganti angka sesuai program affiliate-mu</p>
+      </div>
+
+      <div class="aff-hero">
+        <h2 style="font-size:17px;margin-top:0">Cara gabung</h2>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><div><b>Daftar jadi affiliate</b><p>Klik tombol di bawah & isi data singkat.</p></div></div>
+          <div class="step"><div class="n">2</div><div><b>Dapat link unik</b><p>Tiap produk punya link affiliate khusus buat kamu.</p></div></div>
+          <div class="step"><div class="n">3</div><div><b>Share ke mana aja</b><p>Status WA, IG, TikTok, grup kampus — bebas.</p></div></div>
+          <div class="step"><div class="n">4</div><div><b>Komisi cair</b><p>Komisi masuk otomatis tiap ada pembelian.</p></div></div>
+        </div>
+        <a class="btn-wide" href="https://lynk.id/elba.store" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4v-6a6 6 0 016-6z"/><circle cx="4" cy="4" r="2"/></svg>
+          Gabung Jadi Affiliate
+        </a>
+      </div>
+    </section>
+
+    <section class="info">
+      <h3>Kenapa beli di Elba Store?</h3>
+      <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></div><div><b>Langsung dapat setelah bayar</b><p>File otomatis terkirim via Lynk.id / Google Drive. Tanpa nunggu admin.</p></div></div>
+      <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z"/></svg></div><div><b>100+ prompt per produk</b><p>Prompt disusun rapi, kategori jelas, hasilnya tinggal pakai.</p></div></div>
+      <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Akses selamanya + update</b><p>Sekali beli, file jadi milikmu. Update gratis ke versi terbaru.</p></div></div>
+    </section>
+
+    <footer>
+      <div class="pay"><span>QRIS</span><span>GOPAY</span><span>OVO</span><span>DANA</span><span>SHOPEEPAY</span><span>BANK</span></div>
+      <div>Pembayaran aman lewat Lynk.id</div>
+      <div class="made">© 2026 Elba Store · Dibuat dengan ❤ di Lombok · <a href="https://lynk.id/elba.store" target="_blank" rel="noopener">lynk.id/elba.store</a></div>
+    </footer>
+  </div>
+</div>
+
+<div class="sticky-cta"><div class="inner">
+  <a href="https://lynk.id/elba.store" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+    Lihat Semua di Lynk.id
+  </a>
+</div></div>
+
+<script>
+  /* ============================================================
+     CARA ISI TOMBOL BELI (PENTING — biar langsung ke produkmu)
+     1) Buka produkmu di Lynk.id, salin URL-nya.
+        Contoh: https://lynk.id/elba.store/669gp19pd0ng
+     2) Tempel URL itu ke kolom  link: "..."  di tiap produk.
+     3) Kalau link dikosongkan (""), tombol Beli ke halaman toko.
+     Tombol = link biasa, jadi 100% jalan di GitHub Pages.
+     ============================================================ */
+  const STORE = "https://lynk.id/elba.store";
+
+  // ---- KATALOG (12 produk). Isi "link" tiap produk. ----
+  const products = [
+    {no:1,  cat:"akademik",  theme:"akademik",  title:"Skripsi Sakti",      catLabel:"Skripsi & Akademik", count:"150+ Prompt", desc:"Bab 1–5, rumusan masalah, kerangka teori sampai kesimpulan.", now:"24.900", was:"49.900", link:""},
+    {no:2,  cat:"akademik",  theme:"akademik",  title:"Parafrase Sakti",    catLabel:"Skripsi & Akademik", count:"120+ Prompt", desc:"Ubah kalimat biar lolos cek plagiarisme, makna tetap utuh.", now:"14.900", was:"29.900", link:""},
+    {no:3,  cat:"akademik",  theme:"akademik",  title:"Paper Sakti",        catLabel:"Skripsi & Akademik", count:"110+ Prompt", desc:"Nulis paper & artikel ilmiah dari nol sampai siap submit.", now:"19.900", was:"39.900", link:""},
+    {no:4,  cat:"akademik",  theme:"akademik",  title:"Ujian Sakti",        catLabel:"Skripsi & Akademik", count:"100+ Prompt", desc:"Rangkuman kilat, latihan soal & strategi jawab ujian.", now:"12.900", was:"25.900", link:""},
+    {no:5,  cat:"produktif", theme:"produktif", title:"Presentasi Sakti",   catLabel:"Produktivitas",      count:"100+ Prompt", desc:"Struktur slide, narasi, sampai script ngomong di depan.", now:"14.900", was:"29.900", link:""},
+    {no:6,  cat:"bahasa",    theme:"bahasa",    title:"English Sakti",       catLabel:"Bahasa",             count:"130+ Prompt", desc:"Bahasa Inggris akademik: abstract, email, grammar fix.", now:"17.900", was:"35.900", link:""},
+    {no:7,  cat:"akademik",  theme:"akademik",  title:"Analisis Data Sakti", catLabel:"Skripsi & Akademik", count:"120+ Prompt", desc:"Olah data, interpretasi statistik, narasi hasil penelitian.", now:"19.900", was:"39.900", link:""},
+    {no:8,  cat:"akademik",  theme:"akademik",  title:"PKM Sakti",          catLabel:"Skripsi & Akademik", count:"100+ Prompt", desc:"Proposal PKM lengkap sesuai panduan, ide sampai anggaran.", now:"16.900", was:"33.900", link:""},
+    {no:9,  cat:"produktif", theme:"produktif", title:"Menghafal Sakti",    catLabel:"Produktivitas",      count:"100+ Prompt", desc:"Teknik menghafal cepat, mnemonic & metode belajar efektif.", now:"12.900", was:"25.900", link:""},
+    {no:15, cat:"bisnis",    theme:"bisnis",    title:"Akuntansi Sakti",    catLabel:"Bisnis & Keuangan",  count:"120+ Prompt", desc:"Jurnal, laporan keuangan, analisis rasio & studi kasus.", now:"22.900", was:"45.900", link:""},
+    {no:16, cat:"karier",    theme:"karier",    title:"Magang Sakti",       catLabel:"Karier & Magang",    count:"110+ Prompt", desc:"CV, cover letter, persiapan interview & lamaran magang.", now:"19.900", was:"39.900", link:""},
+    {no:17, cat:"karier",    theme:"karier",    title:"Karier Sakti",       catLabel:"Karier & Magang",    count:"120+ Prompt", desc:"Personal branding, LinkedIn, negosiasi gaji & naik jabatan.", now:"21.900", was:"43.900", link:""},
+  ];
+
+  // ---- AUTO PINTER (produk pilihan). Edit / tambah sesuai halaman Auto Pinter-mu. ----
+  const autoPinter = [
+    {no:1,  cat:"akademik",  theme:"akademik",  title:"Skripsi Sakti",      catLabel:"Best Seller", count:"150+ Prompt", desc:"Paling laris. Skripsi kelar dari bab 1 sampai 5.", now:"24.900", was:"49.900", link:""},
+    {no:15, cat:"bisnis",    theme:"bisnis",    title:"Akuntansi Sakti",    catLabel:"Best Seller", count:"120+ Prompt", desc:"Favorit anak ekonomi & UMKM.", now:"22.900", was:"45.900", link:""},
+    {no:16, cat:"karier",    theme:"karier",    title:"Magang Sakti",       catLabel:"Best Seller", count:"110+ Prompt", desc:"CV & interview anti grogi.", now:"19.900", was:"39.900", link:""},
+    {no:6,  cat:"bahasa",    theme:"bahasa",    title:"English Sakti",       catLabel:"Best Seller", count:"130+ Prompt", desc:"Bahasa Inggris akademik instan.", now:"17.900", was:"35.900", link:""},
+    {no:7,  cat:"akademik",  theme:"akademik",  title:"Analisis Data Sakti", catLabel:"Best Seller", count:"120+ Prompt", desc:"Olah & baca data tanpa pusing.", now:"19.900", was:"39.900", link:""},
+    {no:17, cat:"karier",    theme:"karier",    title:"Karier Sakti",       catLabel:"Best Seller", count:"120+ Prompt", desc:"Naik level di dunia kerja.", now:"21.900", was:"43.900", link:""},
+  ];
+
+  const cartIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>';
+
+  function cardHTML(p){
+    return `
+      <article class="card">
+        <div class="cover g-${p.theme}">
+          <div class="no">No.${String(p.no).padStart(2,'0')}</div>
+          <div class="disc">-50%</div>
+          <div class="pcount">${p.count}</div>
+          <div class="ptitle">${p.title}</div>
+        </div>
+        <div class="body">
+          <div class="cat">${p.catLabel}</div>
+          <div class="name">${p.title}</div>
+          <div class="desc">${p.desc}</div>
+          <div class="price"><span class="now">Rp${p.now}</span><span class="was">Rp${p.was}</span></div>
+          <a class="buy" href="${p.link || STORE}" target="_blank" rel="noopener">${cartIcon} Beli</a>
+        </div>
+      </article>`;
+  }
+
+  // Katalog + filter
+  const grid = document.getElementById('grid');
+  const countEl = document.getElementById('count');
+  function render(cat){
+    const list = cat === 'all' ? products : products.filter(p => p.cat === cat);
+    countEl.textContent = list.length + ' produk';
+    grid.innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty">Belum ada produk di kategori ini.</div>';
+  }
+  document.getElementById('chips').addEventListener('click', e => {
+    const btn = e.target.closest('.chip'); if(!btn) return;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active'); render(btn.dataset.cat);
+  });
+  render('all');
+
+  // Auto Pinter
+  document.getElementById('gridAuto').innerHTML = autoPinter.map(cardHTML).join('');
+  document.getElementById('countAuto').textContent = autoPinter.length + ' produk';
+
+  // Tab switching
+  document.getElementById('tabs').addEventListener('click', e => {
+    const btn = e.target.closest('.tab'); if(!btn) return;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
