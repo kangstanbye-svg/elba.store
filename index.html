@@ -88,7 +88,7 @@
   .price{display:flex;align-items:baseline;gap:7px;margin-top:11px}
   .price .now{font-family:"Space Mono";font-weight:700;font-size:16px}
   .price .was{font-family:"Space Mono";font-size:11.5px;color:var(--ink-soft);text-decoration:line-through}
-  .buy{margin-top:11px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--violet);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:11px;border-radius:13px;transition:.15s}
+  .buy{margin-top:11px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--violet);color:#fff;text-decoration:none;font-family:"Plus Jakarta Sans";font-weight:700;font-size:13px;padding:11px;border-radius:13px;border:none;cursor:pointer;width:100%;transition:.15s}
   .buy:hover{background:var(--violet-deep)}
   .buy svg{width:14px;height:14px}
   .g-akademik{background:linear-gradient(150deg,#6C3BFF,#3A14C9)}
@@ -187,6 +187,24 @@
   @media(min-width:560px){.pay-grid{flex-direction:row;align-items:flex-start}.pay-accounts{flex:1}}
   .wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;font-family:"Sora";font-weight:700;font-size:14px;padding:12px;border-radius:12px;margin-top:2px;transition:.15s}
   .wa-btn:hover{background:#1da851;transform:translateY(-1px)}
+  .modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(10,6,30,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:18px}
+  .modal-overlay.show{display:flex}
+  .modal{background:#fff;color:var(--ink);border-radius:20px;padding:20px;max-width:380px;width:100%;position:relative;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);max-height:90vh;overflow-y:auto}
+  .modal-close{position:absolute;top:10px;right:14px;border:none;background:none;font-size:28px;line-height:1;color:var(--ink-soft);cursor:pointer}
+  .modal-title{font-family:"Sora";font-weight:800;font-size:18px;padding-right:26px;line-height:1.2}
+  .modal-sub{font-size:13px;color:var(--ink-soft);margin:5px 0 14px}
+  .opt{border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+  .opt-web{border-color:var(--violet);background:rgba(91,46,255,.05)}
+  .opt-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .opt-head b{font-family:"Sora";font-size:13.5px}
+  .opt-badge{font-family:"Space Mono";font-weight:700;font-size:10px;background:#16A34A;color:#fff;padding:3px 7px;border-radius:6px;flex:none}
+  .opt-fee{font-family:"Space Mono";font-weight:700;font-size:10px;background:#F1F1F5;color:var(--ink-soft);padding:3px 7px;border-radius:6px;flex:none}
+  .opt-price{font-family:"Space Mono";font-weight:700;font-size:21px;margin:7px 0 2px}
+  .opt-desc{font-size:12px;color:var(--ink-soft);margin-bottom:11px}
+  .opt-btn{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-family:"Sora";font-weight:700;font-size:13.5px;padding:11px;border-radius:11px}
+  .opt-btn.web{background:#25D366;color:#fff}
+  .opt-btn.lynk{background:var(--ink);color:#fff}
+  .opt-btn:active{transform:scale(.98)}
 </style>
 </head>
 <body>
@@ -311,7 +329,7 @@
           <div class="acct"><span class="m">GoPay</span><b>083877553988</b><button data-copy="083877553988">Salin</button></div>
           <div class="acct"><span class="m">DANA</span><b>083877553988</b><button data-copy="083877553988">Salin</button></div>
           <div class="acct"><span class="m">Bank Mandiri</span><b>1610017448205</b><button data-copy="1610017448205">Salin</button></div>
-          <a class="wa-btn" href="https://wa.me/6283877553988?text=Halo%20Elba%20Store%2C%20saya%20mau%20konfirmasi%20pesanan%2Fpembayaran" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.4A10 10 0 1012 2zm5.6 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.7-.1 1.4z"/></svg> Konfirmasi via WhatsApp</a>
+          <a class="wa-btn" href="https://wa.me/6283877553988?text=Halo%20Elba%20Store%2C%20saya%20mau%20konfirmasi%20pesanan%3A%0A%0ANama%20Produk%3A%20%0AAlamat%20Email%3A%20%0ATanggal%20Pembelian%3A%20%0A%0A%28Sudah%20bayar%20%E2%9C%85%29" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.4A10 10 0 1012 2zm5.6 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.1 2.1 1.3.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.7-.1 1.4z"/></svg> Konfirmasi via WhatsApp</a>
           <p class="pay-note">Setelah bayar, kirim bukti via WhatsApp untuk konfirmasi pesanan. 🙏</p>
         </div>
       </div>
@@ -329,6 +347,26 @@
     Lihat Semua di Lynk.id
   </a>
 </div></div>
+
+<div class="modal-overlay" id="buyModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Tutup">&times;</button>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-sub">Pilih cara beli:</div>
+    <div class="opt opt-web">
+      <div class="opt-head"><b>💳 Bayar Langsung di Web</b><span class="opt-badge">HEMAT</span></div>
+      <div class="opt-price" id="mPriceWeb"></div>
+      <div class="opt-desc">Scan QRIS / transfer (lihat bagian Pembayaran di bawah), lalu kirim detail pesanan via WhatsApp.</div>
+      <a class="opt-btn web" id="mWebBtn" href="#" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </div>
+    <div class="opt opt-lynk">
+      <div class="opt-head"><b>🔗 Beli via Lynk.id</b><span class="opt-fee">+5% biaya</span></div>
+      <div class="opt-price" id="mPriceLynk"></div>
+      <div class="opt-desc">Checkout & bayar otomatis di Lynk.id.</div>
+      <a class="opt-btn lynk" id="mLynkBtn" href="#" target="_blank" rel="noopener">Lanjut ke Lynk.id</a>
+    </div>
+  </div>
+</div>
 
 <script>
   /* ============================================================
@@ -404,7 +442,7 @@
           <div class="name">${p.title}</div>
           <div class="desc">${p.desc}</div>
           <div class="price"><span class="now">${priceNow}</span>${p.was ? `<span class="was">Rp${p.was}</span>` : ''}</div>
-          <a class="buy" href="${p.link || STORE}" target="_blank" rel="noopener">${cartIcon} Beli</a>
+          ${p.free ? `<a class="buy" href="${p.link || STORE}" target="_blank" rel="noopener">${cartIcon} Ambil Gratis</a>` : `<button class="buy" data-title="${(p.title||'').replace(/"/g,'&quot;')}" data-now="${p.now}" data-link="${p.link || STORE}">${cartIcon} Beli</button>`}
         </div>
       </article>`;
   }
@@ -449,6 +487,27 @@
         setTimeout(()=>b.textContent=t,1500);
       }).catch(()=>{});
     });
+  });
+
+  // ===== Beli: pilih bayar di web (hemat) atau Lynk.id (+5%) =====
+  const buyModal=document.getElementById('buyModal');
+  const fmtID=n=>n.toLocaleString('id-ID');
+  const WA_NO='6283877553988';
+  function openBuy(title, now, link){
+    const base=parseInt(String(now).replace(/\D/g,''))||0;
+    const lynk=Math.round(base*1.05/100)*100;
+    document.getElementById('mTitle').textContent=title;
+    document.getElementById('mPriceWeb').textContent='Rp'+fmtID(base);
+    document.getElementById('mPriceLynk').textContent='Rp'+fmtID(lynk);
+    const msg='Halo Elba Store, saya mau pesan:\n\nNama Produk: '+title+'\nAlamat Email: \nTanggal Pembelian: \n\n(Sudah bayar via QRIS/transfer \u2705)';
+    document.getElementById('mWebBtn').href='https://wa.me/'+WA_NO+'?text='+encodeURIComponent(msg);
+    document.getElementById('mLynkBtn').href=link||STORE;
+    buyModal.classList.add('show');
+  }
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('.buy[data-title]');
+    if(b){ e.preventDefault(); openBuy(b.dataset.title,b.dataset.now,b.dataset.link); return; }
+    if(e.target===buyModal || e.target.id==='modalClose'){ buyModal.classList.remove('show'); }
   });
 </script>
 </body>
